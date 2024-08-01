@@ -1,30 +1,19 @@
+#!/usr/bin/python3
+'''A module of lockboxes algorithm.
+'''
+
+
 def canUnlockAll(boxes):
+    """Return True if all boxes (list of lists containg keys for unlocking boxes) 
+    can be opened, else return False
+    """
+    def recursive_unlock(boxes, unlocked_boxes, box_index):
+        for key in boxes[box_index]:
+            if key not in unlocked_boxes:
+                unlocked_boxes.add(key)
+                recursive_unlock(boxes, unlocked_boxes, key)
 
-    int n = boxes.list()
+    unlocked_boxes = set([0])
+    recursive_unlock(boxes, unlocked_boxes, 0)
 
-    unlocked_boxes = recursive_unlock(boxes, n)
-    for box in unlocked_boxes:
-        if -1 not in box:
-            return false
-    
-    return true
-
-
-
-def recursive_unlock(boxes, n):
-
-    int i = 0
-    int j = 0
-
-    if (boxes[i].empty()) is true:
-        
-        return boxes
-
-    for i in range of (n):
-        for j in range (boxes[i].length):
-            if boxes[i][j] == -1:
-                pass
-            else:
-                boxes[boxes[[i, j]]].append(-1)
-                recursive_unlock(boxes, n):
-                
+    return len(unlocked_boxes) == len(boxes)
