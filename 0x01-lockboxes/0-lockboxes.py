@@ -4,10 +4,13 @@
 
 
 def canUnlockAll(boxes):
-    """Return True if all boxes (list of lists containg keys for unlocking boxes) 
+    """Return True if all boxes (list of lists containg
+    keys for unlocking boxes)
     can be opened, else return False
     """
     def recursive_unlock(boxes, unlocked_boxes, box_index):
+        """ recursive helper function
+        """
         for key in boxes[box_index]:
             if key not in unlocked_boxes:
                 unlocked_boxes.add(key)
