@@ -7,7 +7,7 @@ import sys
 
 
 def print_output(codes, file_size):
-    f"File size: {file_size}"
+    print("File size: {}".format(file_size))
     for key, val in sorted(codes.items()):
         if val != 0:
             print("{}: {}".format(key, val))
