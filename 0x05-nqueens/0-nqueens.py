@@ -36,10 +36,10 @@ if __name__ == '__main__':
     N = sys.argv[1]
     if type(N) is not int:
         print("N must be a number")
-        exit(1)
+        sys.exit(1)
     if N < 4:
         print("N must be at least 4")
-        exit(1)
+        sys.exit(1)
 
     solver = solve(N, N)
     for array in solver:
