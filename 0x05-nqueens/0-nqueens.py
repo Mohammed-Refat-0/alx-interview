@@ -34,7 +34,9 @@ if __name__ == '__main__':
         sys.exit(1)
 
     N = sys.argv[1]
-    if type(N) is not int:
+    if N.isdigit():
+        the_queen = int(sys.argv[1])
+    else:
         print("N must be a number")
         sys.exit(1)
     if N < 4:
