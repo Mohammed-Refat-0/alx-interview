@@ -30,14 +30,14 @@ async function fetchData () {
           request(`${peopleUrl}${id}`, (err, res, body) => {
             if (err) {
               console.log(err);
-              resolve(null);
+              reject(err);
             } else {
               try {
                 const Data = JSON.parse(body);
                 resolve(Data.name);
               } catch (err) {
                 console.log(err);
-                resolve(null);
+                reject(err);
               }
             }
           });
