@@ -8,10 +8,8 @@ def rotate_2d_matrix(matrix: List[List]) -> None:
     '''In-place 2D-square matrix rotation function
     that performs a 90 degree clock-wise rotation'''
 
-    n = len(matrix)
-
-    for i in range(n):
-        for j in range(i, n):
+    for i in range(len(matrix)):
+        for j in range(i, len(matrix)):
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
     for row in matrix:
