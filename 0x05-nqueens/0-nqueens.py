@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-'''N queens problem module'''
+''' N queens problem module '''
+
 import sys
 
 
@@ -21,25 +22,24 @@ def place_queen(q, column, prev_solver):
 
 def is_safe(q, x, array):
     if x in array:
-        return (False)
+        return False
     else:
-        return all(abs(array[column] - x) != q - column
-                   for column in range(q))
+        return all(abs(array[column] - x) != q - column for column in range(q))
 
 
 if __name__ == '__main__':
-
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
 
-    N = sys.argv[1]
-    if type(N) is not int:
+    if not sys.argv[1].isdigit():
         print("N must be a number")
-        exit(1)
+        sys.exit(1)
+
+    N = int(sys.argv[1])
     if N < 4:
         print("N must be at least 4")
-        exit(1)
+        sys.exit(1)
 
     solver = solve(N, N)
     for array in solver:
