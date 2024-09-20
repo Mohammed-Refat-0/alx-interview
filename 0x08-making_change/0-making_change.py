@@ -13,7 +13,7 @@ def makeChange(coins, total):
     rem = total
     count = 0
     index = 0
-    sorted_coins = coins.sort(reverse=True)
+    sorted_coins = sorted(coins, reverse=True)
 
     while rem > 0:
         if index >= len(coins):
